@@ -5,7 +5,6 @@ In this project, I've used react, redux and react-router JS libraries for buildi
 Helper libraries were used as under -
 - [create-react-app](https://github.com/facebook/create-react-app) for creating the framework template code.
 - [Moment.js](https://momentjs.com/) for all date related calculations.
-- [ESlint](https://eslint.org/) for maintaining the code quality.
 - [Prettier](https://prettier.io/) as code formatter 
 - [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) & [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
 for styling the components.
@@ -33,7 +32,7 @@ There's a Makefile included in this project at the top of the repository. The
 Makefile is very simple and has a default target to install the npm dependencies and start the server in development mode.
 
 There are additional targets as under which are self-explanatory.
-`make help` , `make clean`, `make install`, `make lint` amd `make run`.
+`make help` , `make clean`, `make install` and `make run`.
 
 ####2. npm scripts
 

@@ -27,8 +27,7 @@
     "start-client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint --fix ./src/*.js ./src/components/*/*.js ./src/containers/*.js"
+    "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:8080",
   "eslintConfig": {

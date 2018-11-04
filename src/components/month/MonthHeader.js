@@ -28,7 +28,7 @@ class MonthHeader extends Component {
   };
 
   render() {
-    const { currentMonth, currentYear } = this.props;
+    const { currentMonth, currentYear, isFetching } = this.props;
     const disabled = currentYear < -270000 || currentYear > 270000;
     const monthLabel = moment()
       .month(currentMonth - 1)
@@ -39,12 +39,16 @@ class MonthHeader extends Component {
         <button
           className="btn-prev"
           onClick={this.onClickPrev}
-          disabled={disabled}
+          disabled={disabled || isFetching}
         >
           {`<`}
         </button>
         <span className="label">{`${monthLabel} ${currentYear}`}</span>
-        <button className="btn-next" onClick={this.onClickNext}>{`>`}</button>
+        <button
+          className="btn-next"
+          onClick={this.onClickNext}
+          disabled={disabled || isFetching}
+        >{`>`}</button>
       </div>
     );
   }

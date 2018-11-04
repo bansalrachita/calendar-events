@@ -9,9 +9,6 @@ install:
 clean:
 	rm -rf ./node_modules
 
-lint: install
-	npm run lint
-
 help:
 	@echo "make file for running the application"
 	@echo "default = target runs the application"

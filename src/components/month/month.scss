@@ -22,12 +22,22 @@
       border-radius: 50%;
       font-weight: 700;
       cursor: pointer;
+
+      &:disabled {
+        background-color: rgba(198, 198, 198, 0.8);
+        cursor: not-allowed;
+      }
+      &:focus{
+        outline: none;
+      }
     }
 
     .label {
       padding: 0 10px;
       margin: 6px 0;
       font-weight: 600;
+      min-width: 120px;
+      text-align: center;
     }
   }
 }

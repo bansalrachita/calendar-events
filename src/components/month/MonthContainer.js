@@ -27,9 +27,7 @@ class MonthContainer extends Component {
     const { currentMonth, currentYear } = this.props.calendar;
     //fetches data for the current month and year when the component is mounted.
     this.props.dispatch(calendarFetchAllEvents());
-    this.props.dispatch(
-      calendarMonthGrid(getMonthList(currentMonth, currentYear))
-    );
+    this.props.dispatch(calendarMonthGrid(getMonthList(currentMonth, currentYear)));
   };
 
   /**

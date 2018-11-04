@@ -27,12 +27,15 @@ class MonthView extends Component {
       currentYear,
       grid,
       days,
+      isFetching,
       ...others
     } = this.props;
 
     return (
       <div className="month-container">
-        <MonthHeader {...{ ...others, currentYear, currentMonth }} />
+        <MonthHeader
+          {...{ ...others, currentYear, currentMonth, isFetching }}
+        />
         <div className="month-view">
           {grid.map((x, index) => (
             <DayContainer
@@ -41,7 +44,7 @@ class MonthView extends Component {
               index={index}
               key={`day-` + (index + 1)}
               data={x >= 0 && items[x] ? items[x] : []}
-              {...{ currentMonth, currentYear }}
+              {...{ currentMonth, currentYear, isFetching }}
             />
           ))}
         </div>

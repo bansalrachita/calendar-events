@@ -8,12 +8,12 @@ class EventsContainer extends Component {
    * */
   static propTypes = {
     events: PropTypes.array.isRequired,
-    dayOfMonth: PropTypes.number.isRequired
+    isFetching: PropTypes.bool.isRequired
   };
 
   render() {
-    const { events } = this.props;
-    return <EventsView events={events} />;
+    const { events, isFetching } = this.props;
+    return <EventsView events={events} isFetching={isFetching} />;
   }
 }
 

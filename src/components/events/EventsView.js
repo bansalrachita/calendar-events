@@ -7,7 +7,8 @@ class EventsView extends Component {
    * @type {object} propTypes prop types of the component
    * */
   static propTypes = {
-    events: PropTypes.array.isRequired
+    events: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired
   };
 
   constructor(props) {
@@ -19,9 +20,13 @@ class EventsView extends Component {
   }
 
   render() {
-    const { events } = this.props;
+    const { events, isFetching } = this.props;
     const { maxEvents } = this.state;
-    console.log(events);
+
+    if (isFetching) {
+      return null;
+    }
+
     return (
       <div className="events-container">
         {events.length > maxEvents && (

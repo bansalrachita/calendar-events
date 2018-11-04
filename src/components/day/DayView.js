@@ -4,7 +4,7 @@ import "./day.scss";
 
 class DayView extends Component {
   render() {
-    const { label, data, cellHeader, current, index } = this.props;
+    const { label, data, cellHeader, current, index, ...rest } = this.props;
 
     return (
       <div
@@ -13,14 +13,14 @@ class DayView extends Component {
       >
         <div className="day-header">
           <span className="left-label">{cellHeader}</span>
-          <span className={`right-label`}>
+          <span className="right-label">
             <span className={`${current ? "current" : ""}`}>
               {label === -1 ? "" : label}
             </span>
           </span>
         </div>
         {data.length > 0 && (
-          <EventsContainer events={data} dayOfMonth={label} />
+          <EventsContainer events={data} dayOfMonth={label} {...rest} />
         )}
       </div>
     );

@@ -11,6 +11,7 @@ class DayContainer extends Component {
     data: PropTypes.array.isRequired,
     cellHeader: PropTypes.string,
     label: PropTypes.number.isRequired,
+    isFetching: PropTypes.bool.isRequired,
     dispatch: PropTypes.func
   };
 
