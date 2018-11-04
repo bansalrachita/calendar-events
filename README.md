@@ -1,5 +1,4 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Libraries
 In this project, I've used react, redux and react-router JS libraries for building the Calendar app.<br>
 
@@ -13,6 +12,8 @@ for styling the components.
 - [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) for styling the components.
 
 ## Setup
+Project can be cloned or downloaded [here](https://github.com/bansalrachita/calendar-events).<br>
+
 A copy of events from [here](https://gist.github.com/dannycochran/697345c1f21aa8c40e6925f9a8c0e0b0) is placed in the 
 project as a file named as events.json
 I've added some dummy data to it to better visualize the UI.
@@ -57,9 +58,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 
+####Improvements
 
-
-// applied redux-observables
-//written tests
-//routing to save the state
-//added more comments
+- Ran out time for adding the tests and adding more elaborate comments.
