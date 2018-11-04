@@ -1,38 +1,39 @@
-@import "../../common/variables.scss";
-@import "../../common/mixins.scss";
+@import "../../common/common.scss";
+
 .day-container {
-  margin: 0.3px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+  transition: all 250ms ease-out;
   &.visible {
     @include card();
   }
   &.invisible {
     background: #f6f6f6;
+    border: 0.2px solid rgba(0, 0, 0, 0.1);
   }
 
   .day-header {
     display: flex;
     justify-content: space-between;
+    padding: 2px;
+    transition: all 250ms ease-out;
     .left-label {
-      font-size: 14px;
+      flex: 4 1 auto;
+      font-size: 12px;
+      margin-left: 4px;
+      margin-right: auto;
+      @include truncate($cell-width);
     }
     .right-label {
-      width: 10%;
+      align-self: end;
       font-size: 12px;
-      padding: 3px 2px;
-      font-weight: 300;
-      text-align: left;
-
+      padding: 0 0 1px 4px;
+      margin-right: 5px;
       .current {
         color: #282c34;
-        padding: 2px 5px 3px 5px;
-        margin: 4px 0;
+        padding: 0 4px 1px 4px;
         border-radius: 50%;
-        font-weight: 400;
+        font-weight: 600;
         font-size: 12px;
-        background-color: #f2b3b3;
+        background-color: #baf3c4;
         flex: 1 0 auto;
       }
     }

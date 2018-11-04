@@ -38,6 +38,7 @@ class MonthView extends Component {
             <DayContainer
               {...index < 7 && { cellHeader: days[index % 7] }}
               label={x}
+              index={index}
               key={`day-` + (index + 1)}
               data={x >= 0 && items[x] ? items[x] : []}
               {...{ currentMonth, currentYear }}

@@ -7,6 +7,7 @@ export const CALENDAR_RECEIVE_EVENTS = "CALENDAR_RECEIVE_EVENTS";
 export const CALENDAR_CLEAR_ALL = "CALENDAR_CLEAR_ALL";
 export const CALENDAR_UPDATE_CURRENT_MONTH = "CALENDAR_UPDATE_CURRENT_MONTH";
 export const CALENDAR_UPDATE_CURRENT_YEAR = "CALENDAR_UPDATE_CURRENT_YEAR";
+export const CALENDAR_RECEIVE_MONTH_GRID = "CALENDAR_RECEIVE_MONTH_GRID";
 
 export const calendarRequestData = () => {
   return {
@@ -33,7 +34,7 @@ export const calendarFetchAllEvents = () => {
 
         if (json.data) {
           const items = json.data;
-
+          //TODO: get the monthly data from the server. create a server side filter on year and month.
           const yearlyData =
             indexByDate(items, "launch_date", "YYYY")[+year] || [];
           const monthlyData =
@@ -77,5 +78,12 @@ export const calendarUpdateYear = year => {
   return {
     type: CALENDAR_UPDATE_CURRENT_YEAR,
     year: String(year)
+  };
+};
+
+export const calendarMonthGrid = grid => {
+  return {
+    type: CALENDAR_RECEIVE_MONTH_GRID,
+    grid
   };
 };

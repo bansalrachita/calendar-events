@@ -3,7 +3,8 @@ import {
   calendarReceiveEvents,
   calendarClearAllEvents,
   calendarUpdateMonth,
-  calendarUpdateYear
+  calendarUpdateYear,
+  calendarMonthGrid
 } from "./calendar";
 
 export {
@@ -11,5 +12,6 @@ export {
   calendarReceiveEvents,
   calendarClearAllEvents,
   calendarUpdateMonth,
-  calendarUpdateYear
+  calendarUpdateYear,
+  calendarMonthGrid
 };

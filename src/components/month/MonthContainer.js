@@ -7,7 +7,8 @@ import {
   calendarFetchAllEvents,
   calendarClearAllEvents,
   calendarUpdateMonth,
-  calendarUpdateYear
+  calendarUpdateYear,
+  calendarMonthGrid
 } from "../../actions";
 
 /**
@@ -22,22 +23,13 @@ class MonthContainer extends Component {
     dispatch: PropTypes.func
   };
 
-  constructor(props) {
-    super(props);
-
-    const grid = getMonthList(
-      this.props.calendar.currentMonth,
-      this.props.calendar.currentYear
-    );
-
-    this.state = {
-      grid: grid
-    };
-  }
-
   componentDidMount = () => {
+    const { currentMonth, currentYear } = this.props.calendar;
     //fetches data for the current month and year when the component is mounted.
     this.props.dispatch(calendarFetchAllEvents());
+    this.props.dispatch(
+      calendarMonthGrid(getMonthList(currentMonth, currentYear))
+    );
   };
 
   /**
@@ -51,9 +43,8 @@ class MonthContainer extends Component {
     //checks if the date props have changed.
     // yes ? dispatch fetch data from the server : do nothing.
     if (prevMonth !== currMonth) {
-      const grid = getMonthList(currMonth, currYear);
+      this.props.dispatch(calendarMonthGrid(getMonthList(currMonth, currYear)));
 
-      this.setState({ grid });
       this.props.dispatch(calendarFetchAllEvents());
 
       if (prevYear !== currYear) {
@@ -80,13 +71,8 @@ class MonthContainer extends Component {
    * @return {Function} react element.
    * */
   render() {
-    const { grid } = this.state;
     return (
-      <MonthView
-        grid={grid}
-        {...this.props.calendar}
-        handleOnClick={this.handleOnClick}
-      />
+      <MonthView {...this.props.calendar} handleOnClick={this.handleOnClick} />
     );
   }
 }

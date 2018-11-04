@@ -4,14 +4,12 @@ import "./day.scss";
 
 class DayView extends Component {
   render() {
-    const { label, data, cellHeader, current } = this.props;
+    const { label, data, cellHeader, current, index } = this.props;
 
     return (
       <div
-        className={`${
-          label !== -1 ? "visible" : "invisible"
-        } day-container ${label}`}
-        key={`day-${label}`}
+        className={`${label !== -1 ? "visible" : "invisible"} day-container`}
+        key={`day-${index}`}
       >
         <div className="day-header">
           <span className="left-label">{cellHeader}</span>

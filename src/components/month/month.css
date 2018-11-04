@@ -1,20 +1,23 @@
-.calender-container {
+.month-container {
   display: flex;
   flex-direction: column;
   margin: 0 20px; }
-  .calender-container .calendar-view {
+  .month-container .month-view {
     display: grid;
     grid-template-columns: repeat(7, calc(100% / 7));
     grid-template-rows: repeat(6, calc(100vh / 7)); }
-  .calender-container .header {
+  .month-container .header {
     align-self: center;
-    margin: 20px auto; }
-    .calender-container .header .btn-prev,
-    .calender-container .header .btn-next {
+    display: flex;
+    justify-content: center;
+    padding: 20px; }
+    .month-container .header .btn-prev,
+    .month-container .header .btn-next {
       padding: 5px 10px 10px;
-      border-radius: 3px;
-      font-weight: 700; }
-    .calender-container .header .header-label {
+      border-radius: 50%;
+      font-weight: 700;
+      cursor: pointer; }
+    .month-container .header .label {
       padding: 0 10px;
-      vertical-align: middle;
+      margin: 6px 0;
       font-weight: 600; }

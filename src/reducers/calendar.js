@@ -3,7 +3,8 @@ import {
   CALENDAR_RECEIVE_EVENTS,
   CALENDAR_CLEAR_ALL,
   CALENDAR_UPDATE_CURRENT_MONTH,
-  CALENDAR_UPDATE_CURRENT_YEAR
+  CALENDAR_UPDATE_CURRENT_YEAR,
+  CALENDAR_RECEIVE_MONTH_GRID
 } from "../actions/calendar";
 import moment from "moment";
 
@@ -19,6 +20,7 @@ const defaultState = {
     "Saturday",
     "Sunday"
   ],
+  grid: [],
   currentMonth: moment().format("MM"),
   currentYear: moment().format("YYYY"),
   lastUpdated: moment().format()
@@ -39,6 +41,13 @@ export default function calendar(state = defaultState, action) {
         items: action.items,
         isFetching: false,
         lastUpdated: moment().format()
+      };
+    }
+
+    case CALENDAR_RECEIVE_MONTH_GRID: {
+      return {
+        ...state,
+        grid: action.grid
       };
     }
 
