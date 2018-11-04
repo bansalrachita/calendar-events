@@ -7,9 +7,8 @@ Helper libraries were used as under -
 - [Moment.js](https://momentjs.com/) for all date related calculations.
 - [ESlint](https://eslint.org/) for maintaining the code quality.
 - [Prettier](https://prettier.io/) as code formatter 
-- [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) 
+- [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) & [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
 for styling the components.
-- [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) for styling the components.
 
 ## Setup
 Project can be cloned or downloaded [here](https://github.com/bansalrachita/calendar-events).<br>
@@ -33,9 +32,8 @@ In the project directory, you can run:<br>
 There's a Makefile included in this project at the top of the repository. The
 Makefile is very simple and has a default target to install the npm dependencies and start the server in development mode.
 
-#####`make clean`
-Before running the make command, use this command to Deletes the existing node_modules.
-
+There are additional targets as under which are self-explanatory.
+`make help` , `make clean`, `make install`, `make lint` amd `make run`.
 
 ####2. npm scripts
 
@@ -58,6 +56,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 
+The static files under build folder can be served using server.js.
+
 ####Improvements
 
 - Ran out time for adding the tests and adding more elaborate comments.
+- Open a portal, which behaves like a modal,  for showing granular details for specific days.
+- creating a server side filter on month & year to fetch smaller subset of the events json.  
