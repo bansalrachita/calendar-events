@@ -10,12 +10,12 @@ class DayView extends Component {
       <div
         className={`${
           label !== -1 ? "visible" : "invisible"
-        } day-cell ${label}`}
-        key={`cell-${label}`}
+        } day-container ${label}`}
+        key={`day-${label}`}
       >
-        <div className="cell-top">
-          <span className="day-header-label">{cellHeader}</span>
-          <span className={`label`}>
+        <div className="day-header">
+          <span className="left-label">{cellHeader}</span>
+          <span className={`right-label`}>
             <span className={`${current ? "current" : ""}`}>
               {label === -1 ? "" : label}
             </span>

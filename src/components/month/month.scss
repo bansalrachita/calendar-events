@@ -1,12 +1,12 @@
 @import "../../common/variables.scss";
 @import "../../common/mixins.scss";
 
-.calender-container {
+.month-container {
   display: flex;
   flex-direction: column;
   margin: 0 20px;
 
-  .calendar-view {
+  .month-view {
     display: grid;
     grid-template-columns: repeat(7, calc(100% / 7));
     grid-template-rows: repeat(6, $cell-height);
@@ -23,7 +23,7 @@
       font-weight: 700;
     }
 
-    .header-label {
+    .label {
       padding: 0 10px;
       vertical-align: middle;
       font-weight: 600;

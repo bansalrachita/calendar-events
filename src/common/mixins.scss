@@ -7,7 +7,7 @@
   text-overflow: ellipsis;
 }
 
-@mixin my-card() {
+@mixin card() {
   background: rgba(255, 255, 255, 0.5);
   border: 0.2px solid rgba(0, 0, 0, 0.1);
   padding: 3px;

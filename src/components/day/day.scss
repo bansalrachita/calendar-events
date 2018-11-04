@@ -1,21 +1,24 @@
 @import "../../common/variables.scss";
 @import "../../common/mixins.scss";
-.day-cell {
+.day-container {
   margin: 0.3px;
   display: flex;
   flex-direction: column;
   text-align: left;
   &.visible {
-    @include my-card();
+    @include card();
   }
-
   &.invisible {
     background: #f6f6f6;
   }
-  .cell-top {
+
+  .day-header {
     display: flex;
     justify-content: space-between;
-    .label {
+    .left-label {
+      font-size: 14px;
+    }
+    .right-label {
       width: 10%;
       font-size: 12px;
       padding: 3px 2px;
@@ -32,9 +35,6 @@
         background-color: #f2b3b3;
         flex: 1 0 auto;
       }
-    }
-    .day-header-label {
-      font-size: 14px;
     }
   }
 }

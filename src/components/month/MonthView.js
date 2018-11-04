@@ -31,9 +31,9 @@ class MonthView extends Component {
     } = this.props;
 
     return (
-      <div className="calender-container">
+      <div className="month-container">
         <MonthHeader {...{ ...others, currentYear, currentMonth }} />
-        <div className="calendar-view">
+        <div className="month-view">
           {grid.map((x, index) => (
             <DayContainer
               {...index < 7 && { cellHeader: days[index % 7] }}

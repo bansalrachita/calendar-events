@@ -43,7 +43,7 @@ class MonthHeader extends Component {
         >
           {`<`}
         </button>
-        <span className="header-label">{`${monthLabel} ${currentYear}`}</span>
+        <span className="label">{`${monthLabel} ${currentYear}`}</span>
         <button className="btn-next" onClick={this.onClickNext}>{`>`}</button>
       </div>
     );
