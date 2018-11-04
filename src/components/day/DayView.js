@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import EventsContainer from "../events";
-import "./cell.scss";
+import "./day.scss";
 
-class CellView extends Component {
+class DayView extends Component {
   render() {
     const { label, data, cellHeader, current } = this.props;
 
@@ -29,4 +29,4 @@ class CellView extends Component {
   }
 }
 
-export default CellView;
+export default DayView;

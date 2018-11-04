@@ -4,9 +4,15 @@ import { Provider } from "react-redux";
 import App from "./App";
 
 /**
- * @return {JSX} component MonitorWidget.
+ * @return {JSX} component Root Element.
  * */
 export default class Root extends Component {
+  /**
+   * @type {object} propTypes sets types of properties.
+   * */
+  static propTypes = {
+    store: PropTypes.object.isRequired
+  };
   /**
    * Renders the view.
    * @return {Function} react element.
@@ -21,9 +27,3 @@ export default class Root extends Component {
     );
   }
 }
-/**
- * @type {object} propTypes sets types of properties.
- * */
-Root.propTypes = {
-  store: PropTypes.object.isRequired
-};

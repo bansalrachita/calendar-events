@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import CellView from "./CellView";
-import { connect } from "react-redux";
-import { getCalendarItemsByDay } from "../../reducers";
+import DayView from "./DayView";
 import moment from "moment";
 
-class CellContainer extends Component {
+class DayContainer extends Component {
   /**
    * @type {object} propTypes prop types of the component
    * */
@@ -17,7 +15,7 @@ class CellContainer extends Component {
   };
 
   render() {
-    const { currentYear, currentMonth, label, ...others } = this.props;
+    const { currentYear, currentMonth, label } = this.props;
     const current =
       moment()
         .year(currentYear)
@@ -25,14 +23,8 @@ class CellContainer extends Component {
         .date(label)
         .format("MM-DD-YYYY") === moment().format("MM-DD-YYYY");
 
-    return <CellView {...{ ...others, label, current }} />;
+    return <DayView {...{ ...this.props, current }} />;
   }
 }
 
-const mapStateToProps = (state, { label }) => {
-  return {
-    data: getCalendarItemsByDay(state, label)
-  };
-};
-
-export default connect(mapStateToProps)(CellContainer);
+export default DayContainer;

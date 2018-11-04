@@ -4,16 +4,19 @@ import rootReducer from "../reducers";
 import { createLogger } from "redux-logger";
 
 /**
- * @param {object} initialState set initial state.
+ * @param {object} initialState sets initial state.
  * @return {Function} middleware.
  * */
 export default function configureStore(initialState = {}) {
   const middleWares = [thunkMiddleware];
-  const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   let createStoreWithMiddleware = null;
+
   // apply logger conditionally to log in dev env only.
   if (process.env.NODE_ENV === "development") {
+    //enable redux plugin in the dev-tools in development mode.
+    const composeEnhancers =
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    //enable logging in the console for dev mode.
     middleWares.push(createLogger());
 
     createStoreWithMiddleware = composeEnhancers(

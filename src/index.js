@@ -8,7 +8,7 @@ import configureStore from "./store/configureStore";
 //initializing the store.
 const store = configureStore();
 
-//passing the store down the app.
+//passing the store down the app. The SPA will be rendered in the root element.
 ReactDOM.render(<Root store={store} />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change

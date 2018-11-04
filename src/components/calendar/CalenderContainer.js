@@ -1,15 +1,18 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import CalendarView from "./CalendarView";
+import getMonthList from "../../utils/getMonthList";
 import {
   calendarFetchAllEvents,
   calendarClearAllEvents,
   calendarUpdateMonth,
   calendarUpdateYear
 } from "../../actions";
-import PropTypes from "prop-types";
-import CalendarView from "./CalendarView";
-import getMonthMatrix from "../../utils/getMonthMtrix";
 
+/**
+ * @return {JSX} component calendar container component.
+ * */
 class CalenderContainer extends Component {
   /**
    * @type {object} propTypes prop types of the component
@@ -22,10 +25,9 @@ class CalenderContainer extends Component {
   constructor(props) {
     super(props);
 
-    const grid = getMonthMatrix(
+    const grid = getMonthList(
       this.props.calendar.currentMonth,
-      this.props.calendar.currentYear,
-      this.props.calendar.days
+      this.props.calendar.currentYear
     );
 
     this.state = {
@@ -34,51 +36,56 @@ class CalenderContainer extends Component {
   }
 
   componentDidMount = () => {
+    //fetches data for the current month and year when the component is mounted.
     this.props.dispatch(calendarFetchAllEvents());
   };
 
+  /**
+   * runs after the rendered component gets updated props. Doesn't run on mount.
+   * */
   componentDidUpdate = prevProps => {
-    if (prevProps.calendar.currentMonth !== this.props.calendar.currentMonth) {
-      const grid = getMonthMatrix(
-        this.props.calendar.currentMonth,
-        this.props.calendar.currentYear,
-        this.props.calendar.days
-      );
+    const prevMonth = prevProps.calendar.currentMonth,
+      currMonth = this.props.calendar.currentMonth,
+      prevYear = prevProps.calendar.currentYear,
+      currYear = this.props.calendar.currentYear;
+    //checks if the date props have changed.
+    // yes ? dispatch fetch data from the server : do nothing.
+    if (prevMonth !== currMonth) {
+      const grid = getMonthList(currMonth, currYear);
 
       this.setState({ grid });
-    }
-
-    if (prevProps.calendar.currentYear !== this.props.calendar.currentYear) {
       this.props.dispatch(calendarFetchAllEvents());
+
+      if (prevYear !== currYear) {
+        this.props.dispatch(calendarFetchAllEvents());
+      }
     }
   };
 
-  handleOnClickNext = (event, nextMonth, nextYear) => {
-    this.props.dispatch(calendarUpdateMonth(nextMonth));
-    if (nextYear) {
-      this.props.dispatch(calendarUpdateYear(nextYear));
-    }
-  };
-
-  handleOnClickPrev = (event, prevMonth, prevYear) => {
-    this.props.dispatch(calendarUpdateMonth(prevMonth));
-    if (prevYear) {
-      this.props.dispatch(calendarUpdateYear(prevYear));
+  handleOnClick = (event, month, year) => {
+    this.props.dispatch(calendarUpdateMonth(month));
+    //runs only on change of year.
+    if (year) {
+      this.props.dispatch(calendarUpdateYear(year));
     }
   };
 
   componentWillUnmount = () => {
+    //clears the redux state of the component.
     this.props.dispatch(calendarClearAllEvents());
   };
 
+  /**
+   * Renders the view.
+   * @return {Function} react element.
+   * */
   render() {
     const { grid } = this.state;
     return (
       <CalendarView
         grid={grid}
         {...this.props.calendar}
-        handleOnClickPrev={this.handleOnClickPrev}
-        handleOnClickNext={this.handleOnClickNext}
+        handleOnClick={this.handleOnClick}
       />
     );
   }

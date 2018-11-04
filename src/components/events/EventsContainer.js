@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import EventsView from "./EventsView";
-import { connect } from "react-redux";
-import { getEventsByDay } from "../../reducers";
 
 class EventsContainer extends Component {
   /**
@@ -19,10 +17,4 @@ class EventsContainer extends Component {
   }
 }
 
-const mapStateToProps = (state, { events }) => {
-  return {
-    eventsByDay: getEventsByDay(state, events)
-  };
-};
-
-export default connect(mapStateToProps)(EventsContainer);
+export default EventsContainer;

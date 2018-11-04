@@ -6,7 +6,6 @@ import {
   CALENDAR_UPDATE_CURRENT_YEAR
 } from "../actions/calendar";
 import moment from "moment";
-import indexByDate from "../utils/indexByDate";
 
 const defaultState = {
   items: {},
@@ -65,21 +64,3 @@ export default function calendar(state = defaultState, action) {
       return state;
   }
 }
-
-export const getCalendarItemsByDay = (state, filter) => {
-  const calenderMonthsData = state.items[state.currentMonth];
-  if (calenderMonthsData) {
-    const groupByDays = indexByDate(calenderMonthsData, "launch_date", "D");
-    if (groupByDays && filter >= 0 && groupByDays[filter]) {
-      return [...groupByDays[filter]];
-    }
-
-    return [];
-  }
-
-  return [];
-};
-
-export const getEventsByDay = (state, filter) => {
-  return {};
-};

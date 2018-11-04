@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import getCalendarEventsURL from "../utils/getCalendarEventsURL";
+import getEventsUrl from "../utils/getEventsUrl";
 import indexByDate from "../utils/indexByDate";
 
 export const CALENDAR_REQUEST_EVENTS = "CALENDAR_REQUEST_EVENTS";
@@ -18,10 +18,11 @@ export const calendarFetchAllEvents = () => {
   return async (dispatch, getState) => {
     try {
       const year = getState().calendar.currentYear;
+      const month = getState().calendar.currentMonth;
 
       dispatch(calendarRequestData());
 
-      const response = await fetch(getCalendarEventsURL(), {
+      const response = await fetch(getEventsUrl(), {
         method: "GET",
         Accept: "application/json",
         "Content-Type": "application/json"
@@ -35,9 +36,11 @@ export const calendarFetchAllEvents = () => {
 
           const yearlyData =
             indexByDate(items, "launch_date", "YYYY")[+year] || [];
+          const monthlyData =
+            indexByDate(yearlyData, "launch_date", "M")[+month] || [];
 
           dispatch(
-            calendarReceiveEvents(indexByDate(yearlyData, "launch_date", "M"))
+            calendarReceiveEvents(indexByDate(monthlyData, "launch_date", "D"))
           );
         }
       } else {

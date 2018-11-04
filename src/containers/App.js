@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
 import { Router, Route, Switch } from "react-router-dom";
 import CalendarContainer from "../components/calendar";
 import history from "./history";
+import "./app.css";
 
 class App extends Component {
   /**

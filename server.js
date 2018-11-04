@@ -1,23 +1,14 @@
 var express = require("express");
 var app = express();
+var cors = require("cors");
 var bodyParser = require("body-parser");
-var data = require("./eventsData");
+var data = require("./events");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 var port = process.env.PORT || 8080;
-
 var router = express.Router();
-
-// Unsafely enable cors
-router.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 router.get("/", function(req, res) {
   console.log("Response:", data);
