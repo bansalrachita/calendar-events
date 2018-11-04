@@ -1,0 +1,35 @@
+@import "../../common/variables.scss";
+@import "../../common/mixins.scss";
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.55);
+  .event {
+    background: #f2b3b3;
+    border-radius: 2px;
+    margin: 1px 0;
+    text-transform: capitalize;
+
+    display: flex;
+    padding: 1px 10px;
+    flex-direction: row;
+    .text {
+      @include truncate(calc(100vw / 8));
+      margin-left: 3px;
+      padding: 1px 0;
+    }
+    .icon {
+      &:before {
+        //content: "+ ";
+      }
+    }
+  }
+  .non-event {
+    padding: 1px 10px;
+    margin: 1px 0;
+    @include truncate(calc(100vw / 8));
+    // margin-left: 3px;
+  }
+}

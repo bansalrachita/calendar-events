@@ -1,0 +1,26 @@
+.day-cell {
+  margin: 0.3px;
+  display: flex;
+  flex-direction: column;
+  text-align: left; }
+  .day-cell .label {
+    font-size: 12px;
+    padding: 6px 3px;
+    font-weight: 300; }
+  .day-cell.visible {
+    background: rgba(255, 255, 255, 0.5);
+    border: 0.2px solid rgba(0, 0, 0, 0.1);
+    padding: 3px; }
+  .day-cell.invisible {
+    background: #f6f6f6; }
+  .day-cell .current {
+    color: #282c34;
+    padding: 2px 4px 5px 3px;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    margin: 4px 0;
+    border-radius: 50%;
+    font-weight: 400;
+    font-size: 12px;
+    background-color: #f2b3b3; }

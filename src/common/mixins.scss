@@ -1,0 +1,14 @@
+@import "./variables.scss";
+
+@mixin truncate($value: 200px) {
+  max-width: $value;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin my-card() {
+  background: rgba(255, 255, 255, 0.5);
+  border: 0.2px solid rgba(0, 0, 0, 0.1);
+  padding: 3px;
+}

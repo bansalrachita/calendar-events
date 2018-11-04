@@ -19,9 +19,6 @@ router.use(function(req, res, next) {
   next();
 });
 
-// Simple in memory database
-const database = data.data;
-
 router.get("/", function(req, res) {
   console.log("Response:", data);
   res.json(data);

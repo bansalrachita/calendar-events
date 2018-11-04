@@ -1,0 +1,40 @@
+@import "../../common/variables.scss";
+@import "../../common/mixins.scss";
+.day-cell {
+  margin: 0.3px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  &.visible {
+    @include my-card();
+  }
+
+  &.invisible {
+    background: #f6f6f6;
+  }
+  .cell-top {
+    display: flex;
+    justify-content: space-between;
+    .label {
+      width: 10%;
+      font-size: 12px;
+      padding: 3px 2px;
+      font-weight: 300;
+      text-align: left;
+
+      .current {
+        color: #282c34;
+        padding: 2px 5px 3px 5px;
+        margin: 4px 0;
+        border-radius: 50%;
+        font-weight: 400;
+        font-size: 12px;
+        background-color: #f2b3b3;
+        flex: 1 0 auto;
+      }
+    }
+    .day-header-label {
+      font-size: 14px;
+    }
+  }
+}

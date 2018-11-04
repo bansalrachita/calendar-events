@@ -1,0 +1,32 @@
+@import "../../common/variables.scss";
+@import "../../common/mixins.scss";
+
+.calender-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+
+  .calendar-view {
+    display: grid;
+    grid-template-columns: repeat(7, calc(100% / 7));
+    grid-template-rows: repeat(6, $cell-height);
+  }
+
+  .header {
+    align-self: center;
+    margin: 20px auto;
+
+    .btn-prev,
+    .btn-next {
+      padding: 5px 10px 10px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+
+    .header-label {
+      padding: 0 10px;
+      vertical-align: middle;
+      font-weight: 600;
+    }
+  }
+}

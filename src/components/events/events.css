@@ -1,0 +1,27 @@
+.events-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.55); }
+  .events-container .event {
+    background: #f2b3b3;
+    border-radius: 2px;
+    margin: 1px 0;
+    text-transform: capitalize;
+    display: flex;
+    padding: 1px 10px;
+    flex-direction: row; }
+    .events-container .event .text {
+      max-width: calc(100vw / 8);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-left: 3px;
+      padding: 1px 0; }
+  .events-container .non-event {
+    padding: 1px 10px;
+    margin: 1px 0;
+    max-width: calc(100vw / 8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
