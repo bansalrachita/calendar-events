@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./calendar.scss";
+import "./month.scss";
 import moment from "moment";
 
-class CalendarHeader extends Component {
+class MonthHeader extends Component {
   onClickPrev = event => {
     const { currentMonth, currentYear } = this.props;
     const prevMonth = currentMonth - 1 < 1 ? 12 : currentMonth - 1;
@@ -50,4 +50,4 @@ class CalendarHeader extends Component {
   }
 }
 
-export default CalendarHeader;
+export default MonthHeader;

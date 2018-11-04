@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Router, Route, Switch } from "react-router-dom";
-import CalendarContainer from "../components/calendar";
+import MonthContainer from "../components/month";
 import history from "./history";
 import "./app.css";
 
@@ -24,7 +24,7 @@ class App extends Component {
     const routes = [
       {
         path: "/",
-        component: CalendarContainer,
+        component: MonthContainer,
         exact: true
       }
     ];

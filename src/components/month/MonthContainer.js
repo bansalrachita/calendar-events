@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import CalendarView from "./CalendarView";
+import MonthView from "./MonthView";
 import getMonthList from "../../utils/getMonthList";
 import {
   calendarFetchAllEvents,
@@ -13,7 +13,7 @@ import {
 /**
  * @return {JSX} component calendar container component.
  * */
-class CalenderContainer extends Component {
+class MonthContainer extends Component {
   /**
    * @type {object} propTypes prop types of the component
    * */
@@ -82,7 +82,7 @@ class CalenderContainer extends Component {
   render() {
     const { grid } = this.state;
     return (
-      <CalendarView
+      <MonthView
         grid={grid}
         {...this.props.calendar}
         handleOnClick={this.handleOnClick}
@@ -98,4 +98,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(CalenderContainer);
+export default connect(mapStateToProps)(MonthContainer);

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import DayContainer from "../day";
-import "./calendar.scss";
-import CalendarHeader from "./CalendarHeader";
+import "./month.scss";
+import MonthHeader from "./MonthHeader";
 import PropTypes from "prop-types";
 
 /**
  * @return {JSX} component calendar presentational component.
  * */
-class CalendarView extends Component {
+class MonthView extends Component {
   /**
    * @type {object} propTypes prop types of the component
    * */
@@ -32,7 +32,7 @@ class CalendarView extends Component {
 
     return (
       <div className="calender-container">
-        <CalendarHeader {...{ ...others, currentYear, currentMonth }} />
+        <MonthHeader {...{ ...others, currentYear, currentMonth }} />
         <div className="calendar-view">
           {grid.map((x, index) => (
             <DayContainer
@@ -49,4 +49,4 @@ class CalendarView extends Component {
   }
 }
 
-export default CalendarView;
+export default MonthView;
